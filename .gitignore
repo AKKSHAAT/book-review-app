@@ -28,6 +28,7 @@ node_modules/
 
 # Ignore backend node_modules
 /backend/node_modules/
+/backend/.env
 
 # Dependency lock files
 pnpm-lock.yaml
