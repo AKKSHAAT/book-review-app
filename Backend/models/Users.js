@@ -20,8 +20,23 @@ const userSchema = new mongoose.Schema({
   verified: {
     type: Boolean,
     default: false
+  },
+  location: {
+      type: String,
+  },
+  age: {
+      type: Number,
+  },
+  profession: {
+      type: String,
+  },
+  dob: {
+      type: Date,
+  },
+  bio: {
+      type: String,
   }
-});
+}, { timestamps: true });
 
 const User = mongoose.model('User', userSchema);
 

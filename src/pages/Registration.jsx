@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { OTPVerification } from './Otp';
+import { OTPVerification } from '../components/Otp';
 
 export const Registration = () => {
     const navigate = useNavigate();

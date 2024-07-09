@@ -14,8 +14,8 @@ export const OTPVerification = ({ email }) => {
             try {
                 const response = await axios.post('http://localhost:6969/users/verify-otp', { email, otp });
                 console.log('OTP verified successfully:', response.data);
-                // Redirect to the next page after successful verification
-                navigate("/dashboard");
+                
+                navigate(`/Profile-Completion?email=${encodeURIComponent(email)}`);
             } catch (error) {
                 if (error.response && error.response.data && error.response.data.message) {
                     setErrMsg(error.response.data.message);
@@ -36,7 +36,7 @@ export const OTPVerification = ({ email }) => {
                 <p className='bg-red-200 rounded-md p-1 m-1'>{errMsg}</p>
             )}
             <div className='m-2 text-lg'>
-                <input className='w-[70vw] h-[2.5rem] rounded-lg border-2 border-gray-800 p-4 m-2' type='text' onChange={handleOtpChange} placeholder='Enter OTP'></input>
+                <input className='w-[70vw] h-[2.5rem] rounded-lg border-2 border-gray-800 p-4 m-2' type='number' onChange={handleOtpChange} placeholder='Enter OTP'></input>
             </div>
 
             <button onClick={verifyOtp} className='text-white text-lg bg-succ py-2 px-4 rounded-lg font-semibold m-2'>Verify OTP</button>
