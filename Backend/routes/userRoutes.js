@@ -98,15 +98,16 @@ router.post('/completion', async (req, res) => {
 })
 
 router.post('/login', async (req, res) => {
-  const { username, password } = req.body;
+  const { userName, password } = req.body;
 
   try {
-      const user = await User.findOne({ username });
+      const user = await User.findOne({ userName });
       if (!user) {
           return res.status(404).json({ message: 'User not found' });
       }
 
       if (! password === user.password) {
+          console.log(user.password , password);
           return res.status(401).json({ message: 'Invalid credentials' });
       }
 

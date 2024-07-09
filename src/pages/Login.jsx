@@ -15,8 +15,8 @@ export const Login = () => {
     const loginUser = async () => {
         try {
             const response = await axios.post('http://localhost:6969/users/login', {
-                username,
-                password
+              userName: username,
+              password: password
             });
             const { token } = response.data;
             localStorage.setItem('token', token); // Store token in localStorage
@@ -43,7 +43,7 @@ export const Login = () => {
                     type='text'
                     value={username}
                     onChange={handleUsernameChange}
-                    placeholder='Username or Email'
+                    placeholder='Username'
                 />
                 <input
                     className='w-[70vw] h-[2.5rem] rounded-lg border-2 border-gray-800 p-4 m-2'
