@@ -27,8 +27,8 @@ const ReviewForm = ({ bookId }) => {
     };
 
     return (
-        <div className="bg-white w-full rounded-xl shadow-md p-6">
-            <h2 className="text-2xl font-bold mb-4">Submit a Review</h2>
+        <div className="bg-white  rounded-xl shadow-md p-6">
+            <h2 className="text-2xl font-bold mb-4 text-gray-500">Submit a Review</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
                     <label htmlFor="rating" className="block text-gray-700 font-bold mb-2">Rating (1-5)</label>
@@ -57,7 +57,7 @@ const ReviewForm = ({ bookId }) => {
                 <div className="flex justify-end">
                     <button
                         type="submit"
-                        className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                        className="bg-succ text-white font-bold py-2 px-4 rounded"
                     >
                         Submit Review
                     </button>
