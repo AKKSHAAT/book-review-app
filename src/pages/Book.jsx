@@ -33,7 +33,9 @@ export const Book = () => {
         <p>Genre: {book.genre}</p>
         <p className='pt-5 font-semibold text-gray-600'> Description</p>
         <p className='p-2'>{book.description}</p>
-        <ReviewForm />
+        <ReviewForm 
+            bookId={id}
+        />
     </div>
   )
 }
