@@ -39,7 +39,7 @@ export const BookList = () => {
         {error && <p className="error">{error}</p>}
         <div className='flex justify-around flex-wrap'>
             {books.map((book) => (
-                <div key={book._id} className='bg-white rounded-md w-[12rem] h-[11rem] text-center p-1'>
+                <div key={book._id} className='bg-white rounded-md w-[12rem] h-[22rem] text-center p-1'>
                     <h2 className='text-2xl'>{book.title}</h2>
             
                     <p><strong>Author:</strong> {book.author}</p>
