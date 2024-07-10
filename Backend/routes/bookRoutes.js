@@ -3,7 +3,7 @@ const Book = require('../models/Book');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 
-router.get('/book', async (req, res) => {
+router.get('/books', async (req, res) => {
     try{
         const books = await Book.find({});
         res.status(200).json(books);
@@ -12,6 +12,22 @@ router.get('/book', async (req, res) => {
         res.status(500).json({ message: 'book added succusfully' });
     }
 })
+
+
+
+router.get('/book/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const book = await Book.findById(id);
+        if (!book) {
+            return res.status(404).json({ message: 'Book not found' });
+        }
+        res.status(200).json(book);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
 
 router.post('/add-book', async (req, res) => {
 

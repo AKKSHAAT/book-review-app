@@ -13,7 +13,7 @@ export const BookList = () => {
     useEffect(() => {
     const fetchBooks = async () => {
         try {
-        const response = await axios.get('http://localhost:6969/books/book'); // Adjust the URL as necessary
+        const response = await axios.get('http://localhost:6969/books/books');
         setBooks(response.data);
         } catch (err) {
         setError('Error fetching books');

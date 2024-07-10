@@ -7,6 +7,7 @@ import { Dashboard } from './pages/Dashboard'
 import { Update } from './pages/Update'
 import { AddBook } from './pages/AddBook'
 import { BookList } from './pages/BookList'
+import { Book } from './pages/Book'
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
       <Route path='/update-details' element={ <Update /> }/>
       <Route path='/add-book' element={ <AddBook/> }/>
       <Route path='/all-books' element={ <BookList/> }/>
+      <Route path='/book/:id' element={ <Book/> }/>
     </Routes>
   )
 }
