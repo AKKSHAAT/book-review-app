@@ -31,7 +31,7 @@ export const ProfileCompletion = () => {
             }
             console.log(profileData);
             try {
-                const response = await axios.post('http://localhost:6969/users/completion', profileData);
+                const response = await axios.post('https://book-review-app-3.onrender.com/users/completion', profileData);
                 console.log('User registered successfully:', response.data);
                 setErrMsg('');
             } catch (error) {

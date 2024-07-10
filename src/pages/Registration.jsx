@@ -24,7 +24,7 @@ export const Registration = () => {
                 password: password,
             };
             try {
-                const response = await axios.post('http://localhost:6969/users/register', userData);
+                const response = await axios.post('https://book-review-app-3.onrender.com/users/register', userData);
                 console.log('User registered successfully:', response.data);
                 setErrMsg('');
                 setAskOtp(true);

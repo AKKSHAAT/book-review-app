@@ -11,7 +11,7 @@ const ReviewForm = ({ bookId }) => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`http://localhost:6969/books/${bookId}/reviews`, {
+            const response = await axios.post(`https://book-review-app-3.onrender.com/books/${bookId}/reviews`, {
                 rating,
                 reviewText
             });

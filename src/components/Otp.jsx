@@ -12,7 +12,7 @@ export const OTPVerification = ({ email }) => {
     const verifyOtp = async () => {
         if (otp) {
             try {
-                const response = await axios.post('http://localhost:6969/users/verify-otp', { email, otp });
+                const response = await axios.post('https://book-review-app-3.onrender.com/users/verify-otp', { email, otp });
                 console.log('OTP verified successfully:', response.data);
                 
                 navigate(`/Profile-Completion?email=${encodeURIComponent(email)}`);

@@ -13,7 +13,7 @@ export const BookList = () => {
     useEffect(() => {
     const fetchBooks = async () => {
         try {
-        const response = await axios.get('http://localhost:6969/books/books');
+        const response = await axios.get('https://book-review-app-3.onrender.com/books/books');
         setBooks(response.data);
         } catch (err) {
         setError('Error fetching books');

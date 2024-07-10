@@ -11,7 +11,7 @@ export const Book = () => {
     useEffect(() => {
         const fetchBook = async () => {
             try {
-                const response = await axios.get(`http://localhost:6969/books/book/${id}`);
+                const response = await axios.get(`https://book-review-app-3.onrender.com/books/book/${id}`);
                 setBook(response.data);
             } catch (err) {
                 setError('Error fetching book');

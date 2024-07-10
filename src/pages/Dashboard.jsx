@@ -15,7 +15,7 @@ export const Dashboard = () => {
     async function fetchData() {
       const accessToken = localStorage.getItem('token');
       try {
-        const response = await axios.post('http://localhost:6969/users/details', null, {
+        const response = await axios.post('https://book-review-app-3.onrender.com/users/details', null, {
           headers: {
             Authorization: `Bearer ${accessToken}`
           }

@@ -28,7 +28,7 @@ export const AddBook = () => {
                 description: description
             };
             try {
-                const response = await axios.post('http://localhost:6969/books/add-book', bookData);
+                const response = await axios.post('https://book-review-app-3.onrender.com/books/add-book', bookData);
                 console.log('Book added successfully:', response.data);
                 navigate('/dashboard');
             } catch (error) {
