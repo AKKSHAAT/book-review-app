@@ -3,6 +3,7 @@ const User = require('../models/Users');
 const crypto = require('crypto'); 
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
+const { log } = require('console');
 
 const router = express.Router();
 
@@ -70,7 +71,7 @@ router.post('/verify-otp', async (req, res) => {
 });
 
 router.post('/completion', async (req, res) => {
-  const { location, age, profession, dob, bio } = req.body;
+  const { locationValue, age, profession, dob, bio } = req.body;
   const email = req.body.email;
   console.log(email); 
   
@@ -81,7 +82,7 @@ router.post('/completion', async (req, res) => {
       return res.status(400).json({ message: 'User Not found' }); 
     }
 
-    existingUser.location = location;
+    existingUser.location = locationValue;
     existingUser.age = age;
     existingUser.profession = profession;
     existingUser.dob = dob;
@@ -133,5 +134,68 @@ router.post('/login', async (req, res) => {
   }
 });
 
+router.post('/details', async (req, res) => {
+  const token = req.header('Authorization');
+  // console.log('got ' + token);
+
+  if (!token) {
+      return res.status(401).json({ message: 'please login' });
+  }
+
+  try {
+      const decoded = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET);
+      const userFound = await User.findById(decoded.user.id);
+      
+      if (!userFound) return res.status(404).json({ message: 'please login invalid creds' });
+
+      // console.log(userFound);
+
+      const userDetails = {
+        userName: userFound.userName,
+        verified: userFound.verified,
+        profession: userFound.profession,
+        bio: userFound.bio,
+        dob: userFound.dob,
+        age: userFound.age,
+        profession: userFound.profession,
+        location: userFound.location
+      };
+      return res.status(200).json(userDetails); // Send userDetails directly
+  } catch (error) {
+      console.error(error.message);
+      res.status(401).json({ message: 'Token is not valid.' });
+  }
+});
+
+router.put('/update-user', async (req, res) => {
+
+  const token = req.header('Authorization');
+  if (!token) {
+      return res.status(401).json({ message: 'please login' });
+  }
+
+  try {
+    const decoded = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET);
+    const user = await User.findById(decoded.user.id);
+    if (!user) {
+      console.log('User ID:', req.userId);
+      console.log('User not found');
+      return res.status(404).send('User not found.');
+    }
+
+    user.location = req.body.location || user.location;
+    user.age = req.body.age || user.age;
+    user.profession = req.body.profession || user.profession;
+    user.dob = req.body.dob || user.dob;
+    user.bio = req.body.bio || user.bio;
+
+    await user.save();
+    console.log('User updated');
+    res.status(200).send({ message: 'User updated successfully', user });
+  } catch (error) {
+    console.error('Error updating user:', error);
+    res.status(500).send({ message: 'Error updating user', error: error.message });
+  }
+});
 
 module.exports = router;
