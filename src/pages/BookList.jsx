@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import { useEffect } from 'react'
+import { useEffect } from 'react';
 
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
@@ -25,7 +25,16 @@ export const BookList = () => {
     }, []);
 
     return (
-    <div className="book-list p-5 text-center">
+    <div className="book-list pt-1 px-5 text-center">
+    <nav className='rounded-lg h-14 w-full flex justify-end'>
+        <button onClick={()=>navigate('/login')} className='text-white text-lg h-11 bg-succ py-2 px-4 rounded-lg font-semibold m-2'>
+                    Login
+        </button>
+        <button onClick={()=>navigate('/register')} className='text-white text-lg h-11 bg-succ py-2 px-4 rounded-lg font-semibold m-2'>
+            Register Me
+        </button>
+        
+    </nav>
         <h1 className='text-4xl font-bold text-white pb-2'>Find books</h1>
         {error && <p className="error">{error}</p>}
         <div className='flex justify-around flex-wrap'>

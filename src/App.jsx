@@ -13,7 +13,7 @@ function App() {
 
   return (
     <Routes>
-    
+      <Route path='/' element={ <BookList/> }/>
       <Route path='/register' element={ <Registration /> }/>
       <Route path='/login' element={ <Login /> }/>
       <Route path='/Profile-Completion' element={ <ProfileCompletion /> }/>
