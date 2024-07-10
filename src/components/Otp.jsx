@@ -32,6 +32,7 @@ export const OTPVerification = ({ email }) => {
     return (
         <div>
             <h1 className='text-xl font-semibold'>Verify OTP</h1>
+            <p className='bg-gray-500 rounded-md p-1 m-1'>please check your email</p>
             {errMsg && (
                 <p className='bg-red-200 rounded-md p-1 m-1'>{errMsg}</p>
             )}
