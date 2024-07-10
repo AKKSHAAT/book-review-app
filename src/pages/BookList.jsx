@@ -44,7 +44,7 @@ export const BookList = () => {
             
                     <p><strong>Author:</strong> {book.author}</p>
                     <p><strong>Genre:</strong> {book.genre}</p>
-                    <p><strong>Description:</strong> {book.description}</p>
+                    <p><strong>Description:</strong> {book.description.slice(0, 10)}</p>
                     <button onClick={()=>{ navigate(`/book/${book._id}`)}} className='text-white text-lg bg-succ py-2 px-4 rounded-lg font-semibold my-2'>
                         more
                     </button>
