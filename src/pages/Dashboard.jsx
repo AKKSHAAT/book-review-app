@@ -45,6 +45,10 @@ export const Dashboard = () => {
           className='text-white text-lg bg-accent py-2 px-4 rounded-lg font-semibold my-2 ml-4' >
           Change details
         </button>
+        <button onClick={()=> navigate('/add-book')} 
+          className='text-white text-lg bg-accent py-2 px-4 rounded-lg font-semibold my-2 ml-4' >
+          Add a Book
+        </button>
       </div>
     </div>
   );

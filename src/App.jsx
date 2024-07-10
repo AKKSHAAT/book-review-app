@@ -5,6 +5,8 @@ import { Registration } from './pages/Registration'
 import { ProfileCompletion } from './pages/ProfileCompletion'
 import { Dashboard } from './pages/Dashboard'
 import { Update } from './pages/Update'
+import { AddBook } from './pages/AddBook'
+import { BookList } from './pages/BookList'
 
 function App() {
 
@@ -16,7 +18,8 @@ function App() {
       <Route path='/Profile-Completion' element={ <ProfileCompletion /> }/>
       <Route path='/dashboard' element={ <Dashboard /> }/>
       <Route path='/update-details' element={ <Update /> }/>
-
+      <Route path='/add-book' element={ <AddBook/> }/>
+      <Route path='/all-books' element={ <BookList/> }/>
     </Routes>
   )
 }
